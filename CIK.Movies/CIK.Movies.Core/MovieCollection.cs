@@ -13,8 +13,11 @@ namespace CIK.Movies.Core
             _storage = storage;
         }
 
-        public void AddMovie(Movie movie)
+        public void AddMovie(string name)
         {
+            int id = GetMovieId();
+//            int id = 1;
+            var movie = new Movie(id, name);
             _storage.Add(movie);
         }
 
@@ -27,6 +30,11 @@ namespace CIK.Movies.Core
             {
                 throw new System.ArgumentException("The movie does not exist");
             }
+        }
+
+        public int GetMovieId()
+        {
+            return _storage.GetAll().Count() + 1;
         }
     }
 }

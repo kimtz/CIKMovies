@@ -13,8 +13,8 @@ namespace CIK.Movies.API.Controllers
 
         static Storage()
         {
-            Collection.AddMovie(new Movie(1, "I'm batman"));
-            Collection.AddMovie(new Movie(2, "Star Wars IV"));
+            //Collection.AddMovie("I'm batman");
+            //Collection.AddMovie("Star Wars IV");
         }
     }
 }

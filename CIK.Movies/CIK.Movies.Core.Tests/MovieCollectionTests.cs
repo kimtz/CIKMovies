@@ -20,7 +20,7 @@ namespace CIK.Movies.Core.Tests
         public void AddMovie_should_add_the_movie_to_the_collection()
         {
             var movie = new Movie(1, "Test");
-            _collection.AddMovie(movie);
+            _collection.AddMovie("Test");
 
             _collection.Movies.Should().Contain(movie);
         }
@@ -30,8 +30,8 @@ namespace CIK.Movies.Core.Tests
         {
             var movie = new Movie(1, "Test");
 
-            _collection.AddMovie(movie);
-            _collection.AddMovie(movie);
+            _collection.AddMovie("Test");
+            _collection.AddMovie("Test");
 
             _collection.Movies.Should().HaveCount(1);
         }
@@ -41,7 +41,7 @@ namespace CIK.Movies.Core.Tests
         {
             var movie = new Movie(1, "Test");
 
-            _collection.AddMovie(movie);
+            _collection.AddMovie("Test");
 
             var movieFromCollection = _collection.Movies.First();
 
@@ -52,7 +52,7 @@ namespace CIK.Movies.Core.Tests
         public void RemoveMovie_should_remove_movie_from_the_collection()
         {
             var movie = new Movie(1, "Test");
-            _collection.AddMovie(movie);
+            _collection.AddMovie("Test");
             _collection.RemoveMovie(movie);
             _collection.Movies.Should().NotContain(movie);
         }
@@ -62,7 +62,7 @@ namespace CIK.Movies.Core.Tests
         {
             ArgumentException exception = null;
             var movie_Star_Wars = new Movie(1, "Star Wars: Episode X");
-            _collection.AddMovie(movie_Star_Wars);
+            _collection.AddMovie("Star Wars: Episode X");
             var movie_LOTR = new Movie(2, "The Lord of the Rings: The Fellowship of the Ring");
             try
             {

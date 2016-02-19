@@ -44,7 +44,7 @@ namespace CIK.Movies.Core
 
         private static bool StorageExists => File.Exists(FilePath);
 
-        private static string FilePath => "storage.txt";
+        private static string FilePath => "C:/Users/kim.tengbom/Documents/Storage/storage.txt";
 
         private static void Save(IEnumerable<Movie> movies)
         {
