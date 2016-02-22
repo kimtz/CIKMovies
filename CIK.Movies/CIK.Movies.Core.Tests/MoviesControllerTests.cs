@@ -31,9 +31,9 @@ namespace CIK.Movies.Core.Tests
         public void Test_Post()
         {
             var moviesController = new MoviesController();
-            var createMovieName = new CreateMovieName();
-            createMovieName.Name = "Test 1";
-            moviesController.Post(createMovieName);
+            var createMovie = new CreateMovie();
+            createMovie.Name = "Test 1";
+            moviesController.Post(createMovie);
             var movies = moviesController.Get();
             Assert.AreEqual("Test 1", movies.First().Name);
         }
@@ -42,9 +42,9 @@ namespace CIK.Movies.Core.Tests
         public void Test_Delete_All()
         {
             var moviesController = new MoviesController();
-            var createMovieName = new CreateMovieName();
-            createMovieName.Name = "Test 1";
-            moviesController.Post(createMovieName);
+            var createMovie = new CreateMovie();
+            createMovie.Name = "Test 1";
+            moviesController.Post(createMovie);
             moviesController.Delete();
             var movies = moviesController.Get();
             Assert.IsEmpty(movies);
@@ -55,9 +55,9 @@ namespace CIK.Movies.Core.Tests
         {
             var moviesController = new MoviesController();
             moviesController.Delete();
-            var createMovieName = new CreateMovieName();
-            createMovieName.Name = "Test 1";
-            moviesController.Post(createMovieName);
+            var createMovie = new CreateMovie();
+            createMovie.Name = "Test 1";
+            moviesController.Post(createMovie);
             moviesController.Delete(1);
             var movies = moviesController.Get();
             Assert.IsEmpty(movies);

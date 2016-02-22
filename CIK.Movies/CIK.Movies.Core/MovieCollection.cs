@@ -16,7 +16,6 @@ namespace CIK.Movies.Core
         public void AddMovie(string name)
         {
             int id = GetMovieId();
-//            int id = 1;
             var movie = new Movie(id, name);
             _storage.Add(movie);
         }
@@ -26,7 +25,8 @@ namespace CIK.Movies.Core
             if (Movies.Contains(movie))
             {
                 _storage.Remove(movie);
-            } else
+            }
+            else
             {
                 throw new System.ArgumentException("The movie does not exist");
             }
@@ -34,14 +34,7 @@ namespace CIK.Movies.Core
 
         public void RemoveAll()
         {
-            if (Movies != null)
-            {
-                _storage.RemoveAll();
-            }
-            else
-            {
-                throw new System.ArgumentException("There is no movies saved");
-            }
+            _storage.RemoveAll();
         }
 
         public int GetMovieId()

@@ -25,16 +25,16 @@ namespace CIK.Movies.Core.Tests
             _collection.Movies.Should().Contain(movie);
         }
 
-        [Test]
-        public void Should_not_be_able_to_add_the_same_movie_twice()
-        {
-            var movie = new Movie(1, "Test");
+        //[Test]
+        //public void Should_not_be_able_to_add_the_same_movie_twice()
+        //{
+        //    var movie = new Movie(1, "Test");
 
-            _collection.AddMovie("Test");
-            _collection.AddMovie("Test");
+        //    _collection.AddMovie("Test");
+        //    _collection.AddMovie("Test");
 
-            _collection.Movies.Should().HaveCount(1);
-        }
+        //    _collection.Movies.Should().HaveCount(1);
+        //}
 
         [Test]
         public void Should_be_able_to_fetch_all_movies()
@@ -73,6 +73,14 @@ namespace CIK.Movies.Core.Tests
                 exception = ex;
             }
             Assert.IsNotNull(exception);
+        }
+
+        [Test]
+        public void Should_Remove_All_Movies_In_List()
+        {
+            ArgumentException exception = null;
+            _collection.RemoveAll();
+            _collection.Movies.Should().HaveCount(0);
         }
     }
 }
