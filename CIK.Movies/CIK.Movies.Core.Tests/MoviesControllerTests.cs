@@ -8,6 +8,8 @@ using NUnit.Framework;
 
 namespace CIK.Movies.Core.Tests
 {
+    // Note! These tests change the content of the storage.txt file!
+    [Ignore("Integration tests")]
     [TestFixture]
     public class MoviesControllerTests
     {
