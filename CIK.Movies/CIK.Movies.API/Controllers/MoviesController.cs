@@ -20,9 +20,9 @@ namespace CIK.Movies.API.Controllers
             return movie;
         }
 
-        public void Post(string name)
+        public void Post(CreateMovie input)
         {
-            Storage.Collection.AddMovie(name);
+            Storage.Collection.AddMovie(input.Name);
         }
 
         public void Delete(int id)
@@ -30,11 +30,16 @@ namespace CIK.Movies.API.Controllers
             var movie = Storage.Collection.Movies.FirstOrDefault(x => x.Id == id);
             Storage.Collection.RemoveMovie(movie);
         }
+
+        public void Delete()
+        {
+            Storage.Collection.RemoveAll();
+        }
     }
 
-    //public class CreateMovie
-    //{
-    //   // public int Id = Storage.Collection.GetMovieId();
-    //    public string Name { get; set; }
-    //}
+    public class CreateMovie
+    {
+        // public int Id = Storage.Collection.GetMovieId();
+        public string Name { get; set; }
+    }
 }

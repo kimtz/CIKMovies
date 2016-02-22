@@ -32,6 +32,18 @@ namespace CIK.Movies.Core
             }
         }
 
+        public void RemoveAll()
+        {
+            if (Movies != null)
+            {
+                _storage.RemoveAll();
+            }
+            else
+            {
+                throw new System.ArgumentException("There is no movies saved");
+            }
+        }
+
         public int GetMovieId()
         {
             return _storage.GetAll().Count() + 1;
