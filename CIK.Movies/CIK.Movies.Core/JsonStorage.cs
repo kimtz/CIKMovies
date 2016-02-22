@@ -42,6 +42,13 @@ namespace CIK.Movies.Core
             }
         }
 
+        public void RemoveAll()
+        {
+            var movies = GetAll().ToList();
+            movies.Clear();
+            Save(movies);
+        }
+
         private static bool StorageExists => File.Exists(FilePath);
 
         private static string FilePath => "C:/Users/kim.tengbom/Documents/Storage/storage.txt";

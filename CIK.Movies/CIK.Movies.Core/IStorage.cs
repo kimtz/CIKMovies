@@ -7,5 +7,6 @@ namespace CIK.Movies.Core
         IEnumerable<Movie> GetAll();
         void Add(Movie movie);
         void Remove(Movie movie);
+        void RemoveAll();
     }
 }

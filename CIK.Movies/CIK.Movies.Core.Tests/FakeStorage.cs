@@ -27,5 +27,10 @@ namespace CIK.Movies.Core.Tests
                 _movies.Remove(movie);
             }
         }
+
+        public void RemoveAll()
+        {
+            _movies.Clear();
+        }
     }
 }
