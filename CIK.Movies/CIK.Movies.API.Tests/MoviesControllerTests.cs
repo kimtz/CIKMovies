@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CIK.Movies.API.Controllers;
+using CIK.Movies.Core;
+using CIK.Movies.Core.Tests;
 using NUnit.Framework;
 
-namespace CIK.Movies.Core.Tests
+namespace CIK.Movies.API.Tests
 {
     // Note! These tests change the content of the storage.txt file!
     [Ignore("Integration tests")]
