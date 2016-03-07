@@ -6,7 +6,7 @@
 
         constructor(httpService) {
             this.httpService = httpService;
-            this.baseUrl = 'http://http://localhost:56794/api/Movies';
+            this.baseUrl = 'http://localhost:56794/api/Movies';
         }
 
         getMovies() {
@@ -17,8 +17,8 @@
             return this.httpService.get(this.baseUrl + id);
         }
 
-        createMovie(movie) {
-            return this.httpService.post(this.baseUrl, movie);
+        createMovie(name) {
+            return this.httpService.post(this.baseUrl, name);
         }
     }
 }

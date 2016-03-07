@@ -11,6 +11,7 @@
             const moviesButton = document.getElementById('getMoviesButton');
             if (moviesButton) {
                 moviesButton.addEventListener('click', event => {
+                    console.log("Inne i all movies")
                     self.moviesService
                         .getMovies()
                         .then(self.onReceivedMovies);
@@ -30,5 +31,37 @@
                 moviesContainer.innerHTML = template;
             }
         }
+
+    }
+
+    export class addMoviesController {
+
+        private moviesService;
+        constructor(moviesService) {
+            this.moviesService = moviesService;
+        }
+
+        initialize() {
+            var self = this;
+            const addMoviesButton = document.getElementById('addMoviesButton');
+            const newMovieName = document.getElementById('newMovieName');
+            if (addMoviesButton) {
+                addMoviesButton.addEventListener('click', event => {
+                    console.log("Inne i button")
+                    self.moviesService
+                        .createMovies(newMovieName)
+                        .then(self.onReceivedMovies(newMovieName));
+                }, false);
+            }
+        }
+
+        private onReceivedMovies(newMovieName) {
+            const addMoviesContainer = document.getElementById('addMoviesContainer');
+            if (addMoviesContainer) {
+                var template = '<li Thank you, the movie has been added' + newMovieName + ' </li>';
+                addMoviesContainer.innerHTML = template;
+            }
+        }
+
     }
 }

@@ -11,6 +11,7 @@ var clientApp;
                 var moviesButton = document.getElementById('getMoviesButton');
                 if (moviesButton) {
                     moviesButton.addEventListener('click', function (event) {
+                        console.log("Inne i all movies");
                         self.moviesService
                             .getMovies()
                             .then(self.onReceivedMovies);
@@ -32,6 +33,33 @@ var clientApp;
             return moviesController;
         })();
         ui.moviesController = moviesController;
+        var addMoviesController = (function () {
+            function addMoviesController(moviesService) {
+                this.moviesService = moviesService;
+            }
+            addMoviesController.prototype.initialize = function () {
+                var self = this;
+                var addMoviesButton = document.getElementById('addMoviesButton');
+                var newMovieName = document.getElementById('newMovieName');
+                if (addMoviesButton) {
+                    addMoviesButton.addEventListener('click', function (event) {
+                        console.log("Inne i button");
+                        self.moviesService
+                            .createMovies(newMovieName)
+                            .then(self.onReceivedMovies(newMovieName));
+                    }, false);
+                }
+            };
+            addMoviesController.prototype.onReceivedMovies = function (newMovieName) {
+                var addMoviesContainer = document.getElementById('addMoviesContainer');
+                if (addMoviesContainer) {
+                    var template = '<li Thank you, the movie has been added' + newMovieName + ' </li>';
+                    addMoviesContainer.innerHTML = template;
+                }
+            };
+            return addMoviesController;
+        })();
+        ui.addMoviesController = addMoviesController;
     })(ui = clientApp.ui || (clientApp.ui = {}));
 })(clientApp || (clientApp = {}));
 //# sourceMappingURL=moviesController.js.map
