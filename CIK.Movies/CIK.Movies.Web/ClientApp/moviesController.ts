@@ -2,11 +2,13 @@
     export class moviesController {
 
         private moviesService;
+
         constructor(moviesService) {
             this.moviesService = moviesService;
         }
 
         initialize() {
+            console.log("init");
             var self = this;
             const moviesButton = document.getElementById('getMoviesButton');
             if (moviesButton) {
@@ -33,8 +35,11 @@
         }
 
     }
+}
 
-    export class addMoviesController {
+module clientApp.ui {
+
+export class addMoviesController {
 
         private moviesService;
         constructor(moviesService) {

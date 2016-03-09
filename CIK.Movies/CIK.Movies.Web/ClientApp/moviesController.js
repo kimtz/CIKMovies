@@ -7,6 +7,7 @@ var clientApp;
                 this.moviesService = moviesService;
             }
             moviesController.prototype.initialize = function () {
+                console.log("init");
                 var self = this;
                 var moviesButton = document.getElementById('getMoviesButton');
                 if (moviesButton) {
@@ -33,6 +34,12 @@ var clientApp;
             return moviesController;
         })();
         ui.moviesController = moviesController;
+    })(ui = clientApp.ui || (clientApp.ui = {}));
+})(clientApp || (clientApp = {}));
+var clientApp;
+(function (clientApp) {
+    var ui;
+    (function (ui) {
         var addMoviesController = (function () {
             function addMoviesController(moviesService) {
                 this.moviesService = moviesService;
