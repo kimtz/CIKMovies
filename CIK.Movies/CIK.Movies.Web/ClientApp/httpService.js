@@ -58,7 +58,7 @@ var clientApp;
             return HttpService;
         })();
         services.HttpService = HttpService;
-        var Promise;
     })(services = clientApp.services || (clientApp.services = {}));
 })(clientApp || (clientApp = {}));
+var Promise;
 //# sourceMappingURL=httpService.js.map

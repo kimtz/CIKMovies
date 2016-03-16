@@ -13,8 +13,8 @@ var clientApp;
             MoviesService.prototype.getMovie = function (id) {
                 return this.httpService.get(this.baseUrl + id);
             };
-            MoviesService.prototype.createMovie = function (name) {
-                return this.httpService.post(this.baseUrl, name);
+            MoviesService.prototype.createMovie = function (movie) {
+                return this.httpService.post(this.baseUrl, movie);
             };
             return MoviesService;
         })();

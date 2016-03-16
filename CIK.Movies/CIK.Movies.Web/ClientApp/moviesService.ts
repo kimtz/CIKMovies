@@ -17,8 +17,8 @@
             return this.httpService.get(this.baseUrl + id);
         }
 
-        createMovie(name) {
-            return this.httpService.post(this.baseUrl, name);
+        createMovie(movie) {
+            return this.httpService.post(this.baseUrl, movie);
         }
     }
 }

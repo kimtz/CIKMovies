@@ -36,6 +36,7 @@
                     reject(this.statusText);
                 };
             });
+
             return promise;
         }
 
@@ -58,7 +59,6 @@
             return uri;
         }
     }
-
-    var Promise: any;
-
 }
+
+var Promise: any;

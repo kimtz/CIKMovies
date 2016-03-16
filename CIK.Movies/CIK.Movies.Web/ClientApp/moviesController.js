@@ -7,12 +7,10 @@ var clientApp;
                 this.moviesService = moviesService;
             }
             moviesController.prototype.initialize = function () {
-                console.log("init");
                 var self = this;
                 var moviesButton = document.getElementById('getMoviesButton');
                 if (moviesButton) {
                     moviesButton.addEventListener('click', function (event) {
-                        console.log("Inne i all movies");
                         self.moviesService
                             .getMovies()
                             .then(self.onReceivedMovies);
@@ -22,51 +20,39 @@ var clientApp;
             moviesController.prototype.onReceivedMovies = function (data) {
                 var moviesContainer = document.getElementById('moviesContainer');
                 if (moviesContainer) {
-                    var movies = JSON.parse(data);
-                    var template = '<ul>';
-                    movies.forEach(function (m) {
-                        template += '<li id="movie-' + m.id + '">' + m.name + '</li>';
-                    });
-                    template += '</ul>';
-                    moviesContainer.innerHTML = template;
+                    var moviesTemplate = '<ul class="movies-list">' +
+                        JSON.parse(data)
+                            .sort(compareByName)
+                            .map(toClientMovie)
+                            .map(toMovieTemplate)
+                            .join('') +
+                        '</ul>';
+                    moviesContainer.movies = JSON.parse(data);
+                    moviesContainer.innerHTML = moviesTemplate;
+                }
+                function compareByName(a, b) {
+                    return +(a.name > b.name) || +(a.name === b.name) - 1;
+                }
+                function toClientMovie(m) {
+                    var genre = m.genre != null ? m.genre : 'Action/Adventure';
+                    var runtime = m.runTime != null ? m.runtime : '98 minutes';
+                    var logoUrl = m.logoUrl != null ? m.logoUrl :
+                        "http://www-images.theonering.org/torwp/wp-content/uploads/2011/04/LOTR_Trilogy_door_poster_L1.jpg";
+                    return ({ title: m.Name, logoUrl: logoUrl, genre: genre, runtime: runtime });
+                }
+                function toMovieTemplate(m) {
+                    return '<li><img src="' + m.logoUrl + '" class="logo" width="377" height="159"/>' +
+                        '<div>' +
+                        '<h2>' + m.title + '</h2>' +
+                        '<div><span style="font-weight: bold;"> Genre: </span><span>' + m.genre + '</span></div>' +
+                        '<div><span style="font-weight: bold;"> Runtime: </span><span>' + m.runtime + '</span></div>' +
+                        '</div>' +
+                        '</li>';
                 }
             };
             return moviesController;
         })();
         ui.moviesController = moviesController;
-    })(ui = clientApp.ui || (clientApp.ui = {}));
-})(clientApp || (clientApp = {}));
-var clientApp;
-(function (clientApp) {
-    var ui;
-    (function (ui) {
-        var addMoviesController = (function () {
-            function addMoviesController(moviesService) {
-                this.moviesService = moviesService;
-            }
-            addMoviesController.prototype.initialize = function () {
-                var self = this;
-                var addMoviesButton = document.getElementById('addMoviesButton');
-                var newMovieName = document.getElementById('newMovieName');
-                if (addMoviesButton) {
-                    addMoviesButton.addEventListener('click', function (event) {
-                        console.log("Inne i button");
-                        self.moviesService
-                            .createMovies(newMovieName)
-                            .then(self.onReceivedMovies(newMovieName));
-                    }, false);
-                }
-            };
-            addMoviesController.prototype.onReceivedMovies = function (newMovieName) {
-                var addMoviesContainer = document.getElementById('addMoviesContainer');
-                if (addMoviesContainer) {
-                    var template = '<li Thank you, the movie has been added' + newMovieName + ' </li>';
-                    addMoviesContainer.innerHTML = template;
-                }
-            };
-            return addMoviesController;
-        })();
-        ui.addMoviesController = addMoviesController;
     })(ui = clientApp.ui || (clientApp.ui = {}));
 })(clientApp || (clientApp = {}));
 //# sourceMappingURL=moviesController.js.map

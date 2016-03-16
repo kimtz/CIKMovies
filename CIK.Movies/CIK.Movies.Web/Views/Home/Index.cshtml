@@ -33,34 +33,39 @@
     </div>
 </div>*@
 
+@section scripts {
+
+<script type="text/javascript" src="~/ClientApp/httpService.js"></script>
+<script type="text/javascript" src="~/ClientApp/moviesService.js"></script>
+<script type="text/javascript" src="~/ClientApp/moviesController.js"></script>
+<script type="text/javascript" src="~/ClientApp/uiInitialize.js"></script>
+
+
+}
 
 <div class="row">
     <button class="btn btn-primary" style="margin: 20px 0;" id="getMoviesButton">
         Get movies
     </button>
-    @*<script type="text/javascript" src="C:/Users/kim.tengbom/Documents/GitHub/CIKMovies/CIK.Movies/CIK.Movies.Web/ClientApp/moviesController.js"></script>*@
     <div id="moviesContainer">
 
     </div>
 </div>
 
 
-<div class="content">
-    <input id="newMovieName" placeholder="Enter the movie name" type="text"/>
-    
-        <button class="btn btn-primary" style="display: ;" id="addMoviesButton">
-            Add movie
-        </button>
-    <label id="addMoviesLabel"> hej </label>
-    <div id="addMoviesContainer">
-    </div>
-    </div>
 
-    @*<div class="row">
-            <button class="btn btn-primary" style="margin: 20px 0;" id="addMoviesButton">
-                Add a movie
-            </button>
-            <div id="moviesContainer">
 
-            </div>
-        </div>*@
+
+@*@section scripts { <link src="~/Contentblabla/blabla.js" type="text/javascript />" }*@
+
+
+
+@*<script type="text/javascripts" src="~/ClientApp/httpService.js"></script>
+<script type="text/javascripts" src="~/ClientApp/moviesService.js"></script>
+<script type="text/javascripts" src="~/ClientApp/moviesController.js"></script>
+<script type="text/javascripts" src="~/ClientApp/uiInitialize.js"></script>*@
+
+@*<link src="~/ClientApp/httpService.js" type="text/javascripts" />
+<link src="~/ClientApp/moviesService.js" type="text/javascripts" />
+<link src="~/ClientApp/moviesController.js" type="text/javascripts" />
+<link src="~/ClientApp/uiInitialize.js" type="text/javascripts" />*@
