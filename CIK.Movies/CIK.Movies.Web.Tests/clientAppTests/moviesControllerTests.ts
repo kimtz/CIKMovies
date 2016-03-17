@@ -1,5 +1,12 @@
-﻿/// <reference path="references.ts"/>
+﻿/// <chutzpah_reference path="../Scripts/jasmine/jasmine.js"/>
+/// <reference path="references.ts"/>
+/// <chutzpah_reference path="references.js"/>
+/// <chutzpah_reference path="../../cik.movies.web/clientapp/httpservice.js" />
+/// <reference path="../../cik.movies.web/clientapp/httpservice.ts" />
+/// <reference path="../../cik.movies.web/clientapp/moviesservice.ts" />
+/// <chutzpah_reference path="../../cik.movies.web/clientapp/moviesservice.js" />
 /// <reference path="../../cik.movies.web/clientapp/moviescontroller.ts" />
+/// <chutzpah_reference path="../../cik.movies.web/clientapp/moviescontroller.js" />
 
 describe('Movies controller', () => {
     var moviesController,
