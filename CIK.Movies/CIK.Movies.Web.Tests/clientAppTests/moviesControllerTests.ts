@@ -1,4 +1,7 @@
 ﻿/// <chutzpah_reference path="../Scripts/jasmine/jasmine.js"/>
+/// <chutzpah_reference path="../Scripts/jasmine/jasmine-html.js"/>
+/// <chutzpah_reference path="../Scripts/jasmine/boot.js"/>
+/// <chutzpah_reference path="../Scripts/jasmine/console.js"/>
 /// <reference path="references.ts"/>
 /// <chutzpah_reference path="references.js"/>
 /// <chutzpah_reference path="../../cik.movies.web/clientapp/httpservice.js" />
